@@ -1,0 +1,28 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-body">
+      <img width="180" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" class="mx-auto">
+        <form (submit)="submitLocation(cityName, cityCode)">
+          <input type="text" placeholder="City Name" class="form-control" autofocus #cityName>
+          <input type="text" placeholder="City Code" class="form-control" #cityCode>
+          <button class="btn btn-primary btn-block mt-2">
+            Get Weather
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="weather" class="card card-body text-center">
+        <h1 class="h4">Weather Information</h1>
+        <p>City: {{weather.name}}</p>
+        <p>Latitude: {{weather.coord.lat}}</p>
+        <p>Longitude: {{weather.coord.lon}}</p>
+        <p>Humidity: {{weather.main.humidity}}</p>
+        <p>Pressure: {{weather.main.pressure}}</p>
+        <p>Temperature: {{weather.main.temp}} °C</p>
+        <p>Description: {{weather.weather[0].description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
